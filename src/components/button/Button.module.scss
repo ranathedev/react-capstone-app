@@ -1,0 +1,21 @@
+@import 'styles/common';
+
+.btn {
+  width: max-content;
+  padding: 0.625rem 1.5rem;
+  background: $primaryYellow;
+  border-radius: 0.5rem;
+  border: none;
+  font-family: 'Karla', sans-serif;
+  font-size: 1.25rem;
+  transition: opacity 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
