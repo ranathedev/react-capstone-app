@@ -11,3 +11,8 @@ $primaryYellow: #f4ce14;
   display: flex;
   align-items: center;
 }
+
+.flexCol {
+  display: flex;
+  flex-direction: column;
+}

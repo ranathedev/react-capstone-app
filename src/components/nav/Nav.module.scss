@@ -1,4 +1,4 @@
-@import 'styles/common.scss';
+@import 'styles/common';
 
 .nav {
   @extend .flexCenter;
@@ -47,7 +47,7 @@
   animation: hideMenu 0.2s;
 }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 55rem) {
   .nav {
     position: absolute;
     display: none;
