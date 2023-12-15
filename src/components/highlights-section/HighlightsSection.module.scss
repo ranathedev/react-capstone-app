@@ -21,8 +21,7 @@
     }
 
     .itemContainer {
-      display: flex;
-      justify-content: space-evenly;
+      @extend .justifyEven;
       gap: 2rem 1rem;
       margin-top: 4rem;
     }

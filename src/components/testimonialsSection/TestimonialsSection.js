@@ -36,7 +36,7 @@ const TestimonialsSection = () => {
       id: 'justin-harper',
       numOfStars: 4,
       imgSrc: JustinImage,
-      name: 'Justing Harper',
+      name: 'Justin Harper',
       review: 'This is some review text from',
     },
   ]

@@ -1,0 +1,147 @@
+@import 'styles/common';
+
+.about {
+  padding: 4rem 0 10rem;
+
+  .heading {
+    margin-bottom: 5rem;
+    font-family: 'Markazi Text', serif;
+    font-size: 4rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-align: center;
+  }
+
+  .wrapper {
+    @extend .justifyBetween;
+    max-width: 62.5rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+
+    article {
+      @extend .flexCol;
+      gap: 2.75rem;
+
+      h1 {
+        font-family: 'Markazi Text', serif;
+        font-size: 4rem;
+        letter-spacing: 1.5px;
+        color: $primaryGreen;
+      }
+
+      h4 {
+        margin-top: -0.5rem;
+        font-family: 'Markazi Text', serif;
+        font-size: 2rem;
+        letter-spacing: 1.5px;
+      }
+
+      p {
+        max-width: 23.125rem;
+        font-family: 'Karla', sans-serif;
+        font-size: 1.25rem;
+      }
+    }
+
+    .imgzContainer {
+      position: relative;
+      max-width: 28rem;
+
+      img {
+        position: absolute;
+        width: 17.25rem;
+        border-radius: 0.75rem;
+      }
+
+      img:first-of-type {
+        top: -2.5rem;
+        right: 0;
+        z-index: 1;
+      }
+
+      img:last-of-type {
+        top: 6rem;
+        right: 11rem;
+        transition: all 0.2s;
+
+        &:hover {
+          transform: scale(1.1);
+          z-index: 2;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 55rem) {
+  .about .wrapper {
+    article p {
+      max-width: 20rem;
+    }
+
+    .imgzContainer {
+      img {
+        width: 15rem;
+      }
+
+      img:first-of-type {
+        top: -0.5rem;
+      }
+
+      img:last-of-type {
+        top: 8rem;
+        right: 9.375rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 48rem) {
+  .about {
+    padding: 2rem 0 5rem;
+
+    .heading {
+      margin-bottom: 2rem;
+    }
+
+    .wrapper {
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
+
+      article {
+        width: 100%;
+
+        p {
+          max-width: 31.25rem;
+        }
+      }
+
+      .imgzContainer {
+        display: flex;
+        justify-content: space-evenly;
+        gap: 1rem;
+        width: 100%;
+        max-width: 100%;
+
+        img {
+          position: static;
+          width: 48%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 31.25rem) {
+  .about .wrapper .imgzContainer {
+    img:first-of-type {
+      width: 100%;
+      max-width: 20rem;
+    }
+
+    img:last-of-type {
+      display: none;
+    }
+  }
+}
