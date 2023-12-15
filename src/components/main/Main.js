@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import HeroSection from 'components/hero-section'
 import HighlightsSection from 'components/highlights-section'
+import TestimonialsSection from 'components/testimonialsSection'
 
 import HeroImageA from 'assets/restaurantfood.jpg'
 import HeroImageB from 'assets/restaurantfood-B.jpg'
@@ -40,6 +41,7 @@ const Main = () => {
         imgSrc={imgSrc}
       />
       <HighlightsSection />
+      <TestimonialsSection />
     </main>
   )
 }
