@@ -1,6 +1,9 @@
 import React from 'react'
+import clsx from 'clsx'
 
-const Nav = () => {
+import stl from './Nav.module.scss'
+
+const Nav = ({ show }) => {
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
@@ -9,8 +12,12 @@ const Nav = () => {
     { name: 'Order Online', href: '/order-online' },
     { name: 'Login', href: '/login' },
   ]
+
   return (
-    <nav>
+    <nav
+      aria-hidden={!show}
+      className={clsx(stl.nav, show ? stl.expand : stl.hide)}
+    >
       <ul>
         {navLinks.map(item => (
           <li key={item.name}>

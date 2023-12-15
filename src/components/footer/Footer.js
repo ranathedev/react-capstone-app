@@ -26,7 +26,7 @@ const Footer = () => {
   return (
     <footer>
       <div>
-        <img />
+        {/* <img /> */}
         <ul>
           {doormatNav.map(item => (
             <li key={item.name}>
