@@ -1,0 +1,49 @@
+@import 'styles/common';
+
+.highlights .wrapper {
+  max-width: 62.5rem;
+  margin: 10rem auto;
+  padding: 0 1rem;
+
+  .header {
+    @extend .alignCen;
+    justify-content: space-between;
+    gap: 1rem;
+
+    .heading {
+      font-family: 'Markazi Text', serif;
+      font-size: 2.5rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  .itemContainer {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 2rem 1rem;
+    margin-top: 4rem;
+  }
+}
+
+@media screen and (max-width: 50rem) {
+  .highlights .wrapper {
+    margin-top: 5rem;
+  }
+}
+
+@media screen and (max-width: 48rem) {
+  .highlights .wrapper .itemContainer {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 34.375rem) {
+  .highlights .wrapper .header {
+    flex-direction: column;
+
+    .heading {
+      text-align: center;
+    }
+  }
+}

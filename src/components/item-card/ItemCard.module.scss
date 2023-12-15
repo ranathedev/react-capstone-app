@@ -1,0 +1,72 @@
+@import 'styles/common';
+
+.itemCard {
+  background: #edeeef;
+  max-width: 17rem;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  box-shadow: 4px 4px 12px #ccc;
+
+  img {
+    width: 100%;
+  }
+
+  .content {
+    padding: 1.25rem 1rem 1.5rem;
+
+    .cardHeader {
+      @extend .alignCen;
+      justify-content: space-between;
+
+      .title {
+        font-family: 'Markazi Text', serif;
+        font-size: 1.5rem;
+      }
+
+      .price {
+        font-family: 'Karla', sans-serif;
+        color: $orange;
+      }
+    }
+
+    .desc {
+      margin-top: 1rem;
+      font-family: 'Karla', sans-serif;
+      color: $primaryGreen;
+    }
+
+    a {
+      position: relative;
+      @extend .alignCen;
+      gap: 0.5rem;
+      width: max-content;
+      margin-top: 1.5rem;
+      font-family: 'Karla', sans-serif;
+      font-weight: 600;
+
+      &::after {
+        position: absolute;
+        content: '';
+        width: 0;
+        height: 2px;
+        background: $primaryGreen;
+        left: 0;
+        bottom: 0;
+        transition: all 0.25s;
+      }
+
+      &:hover {
+        color: $primaryGreen;
+
+        svg path {
+          fill: $primaryGreen;
+        }
+
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
