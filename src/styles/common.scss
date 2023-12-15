@@ -17,3 +17,13 @@ $orange: #ee9972;
   display: flex;
   flex-direction: column;
 }
+
+.justifyBetween {
+  display: flex;
+  justify-content: space-between;
+}
+
+.justifyEven {
+  display: flex;
+  justify-content: space-evenly;
+}
