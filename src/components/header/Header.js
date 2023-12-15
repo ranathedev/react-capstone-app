@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import Nav from 'components/nav'
+import useOnClickOutside from 'utils/useClickOutside'
+
 import { ReactComponent as BasketIcon } from 'assets/basket.svg'
 import { ReactComponent as MenuIcon } from 'assets/hamburger.svg'
 
@@ -10,6 +12,7 @@ const Header = () => {
   const [showMenu, setShowMenu] = useState(false)
   const [width, setWidth] = useState(1000)
   const [ariaHidden, setAriaHidden] = useState(false)
+  const headerRef = useRef(null)
 
   useEffect(() => {
     if (width > 880) {
@@ -29,8 +32,10 @@ const Header = () => {
     return () => window.removeEventListener('resize', measureWidth)
   }, [])
 
+  useOnClickOutside(() => setShowMenu(false), headerRef)
+
   return (
-    <header className={stl.header}>
+    <header ref={headerRef} className={stl.header}>
       <div className={stl.wrapper}>
         <a href="/">
           <img src="Logo.png" width={150} height={50} alt="Little Lemon Logo" />
