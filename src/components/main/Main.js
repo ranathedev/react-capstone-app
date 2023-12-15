@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 import HeroSection from 'components/hero-section'
+import HighlightsSection from 'components/highlights-section'
 
 import HeroImageA from 'assets/restaurantfood.jpg'
 import HeroImageB from 'assets/restaurantfood-B.jpg'
@@ -38,6 +39,7 @@ const Main = () => {
         btnLabel={'Reserve Table'}
         imgSrc={imgSrc}
       />
+      <HighlightsSection />
     </main>
   )
 }
