@@ -1,0 +1,107 @@
+@import 'styles/common.scss';
+
+.nav {
+  @extend .flexCenter;
+
+  ul {
+    @extend .flexCenter;
+    gap: 1.25rem;
+    width: 100%;
+    list-style: none;
+
+    li a {
+      position: relative;
+      padding: 0 0.25rem;
+      font-family: 'Karla', sans-serif;
+      font-size: 1.25rem;
+
+      &::after {
+        position: absolute;
+        content: '';
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: $primaryGreen;
+        transition: all 0.3s;
+      }
+
+      &:hover {
+        color: $primaryGreen;
+
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.expand {
+  display: flex !important;
+  animation: expand 0.2s forwards;
+  border: none !important;
+}
+
+.hide {
+  animation: hideMenu 0.2s;
+}
+
+@media screen and (max-width: 880px) {
+  .nav {
+    position: absolute;
+    display: none;
+    width: 100%;
+    top: -5rem;
+    left: 0;
+    transform-origin: top;
+    border-bottom: 1px solid #edeeef;
+    background: #f9f9f9;
+    background: $primaryGreen;
+    box-shadow: 0 4px 10px #aaa;
+
+    ul {
+      flex-direction: column;
+      align-items: start;
+      gap: 1rem;
+      margin: 0;
+      padding: 0.75rem 1rem;
+
+      li a {
+        color: white;
+      }
+
+      li a:hover {
+        color: $primaryYellow;
+
+        &::after {
+          background: $primaryYellow;
+        }
+      }
+    }
+  }
+}
+
+@keyframes expand {
+  from {
+    top: -5rem;
+  }
+
+  to {
+    top: 3.9rem;
+  }
+}
+
+@keyframes hideMenu {
+  from {
+    display: flex;
+    opacity: 1;
+    top: 3.9rem;
+  }
+
+  to {
+    display: none;
+    opacity: 0;
+    top: -5rem;
+  }
+}
