@@ -1,34 +1,37 @@
 @import 'styles/common';
 
-.highlights .wrapper {
-  max-width: 62.5rem;
-  margin: 10rem auto;
-  padding: 0 1rem;
+.highlights {
+  padding: 10rem 0 5rem;
+  .wrapper {
+    max-width: 62.5rem;
+    margin: 0 auto;
+    padding: 0 1rem;
 
-  .header {
-    @extend .alignCen;
-    justify-content: space-between;
-    gap: 1rem;
+    .header {
+      @extend .alignCen;
+      justify-content: space-between;
+      gap: 1rem;
 
-    .heading {
-      font-family: 'Markazi Text', serif;
-      font-size: 2.5rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
+      .heading {
+        font-family: 'Markazi Text', serif;
+        font-size: 2.5rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
     }
-  }
 
-  .itemContainer {
-    display: flex;
-    justify-content: space-evenly;
-    gap: 2rem 1rem;
-    margin-top: 4rem;
+    .itemContainer {
+      display: flex;
+      justify-content: space-evenly;
+      gap: 2rem 1rem;
+      margin-top: 4rem;
+    }
   }
 }
 
 @media screen and (max-width: 50rem) {
-  .highlights .wrapper {
-    margin-top: 5rem;
+  .highlights {
+    padding-top: 5rem;
   }
 }
 
