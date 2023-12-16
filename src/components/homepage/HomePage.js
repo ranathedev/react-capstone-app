@@ -32,14 +32,13 @@ const HomePage = () => {
   return (
     <>
       <HeroSection
-        heading={'Little Lemon'}
-        subHeading={'Chicago'}
-        desc={
-          'We are a Family owned Meditterranian, restaurant, focused on traditional recipes served with a modern twist.'
-        }
+        heading="Little Lemon"
+        subHeading="Chicago"
+        desc="We are a Family owned Meditterranian, restaurant, focused on traditional recipes served with a modern twist. We are a Family owned Meditterranian, restaurant, focused on traditional recipes served with a modern twist."
         showBtn={true}
-        btnLabel={'Reserve Table'}
+        btnLabel="Reserve Table"
         imgSrc={imgSrc}
+        imgAlt="restaurant-food"
       />
       <HighlightsSection />
       <TestimonialsSection />

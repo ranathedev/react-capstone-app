@@ -1,0 +1,22 @@
+.booking {
+  .heroSection > div {
+    align-items: center;
+  }
+
+  .heading {
+    margin: 4rem 0;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 53rem) {
+  .booking .heroSection > div article p {
+    max-width: 20rem;
+  }
+}
+
+@media screen and (max-width: 50rem) {
+  .booking .heroSection > div article p {
+    max-width: 30rem;
+  }
+}
