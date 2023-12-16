@@ -2,6 +2,7 @@
 
 .nav {
   @extend .flexCenter;
+  z-index: 10;
 
   ul {
     @extend .flexCenter;
@@ -55,10 +56,8 @@
     top: -5rem;
     left: 0;
     transform-origin: top;
-    border-bottom: 1px solid #edeeef;
-    background: #f9f9f9;
-    background: $primaryGreen;
-    box-shadow: 0 0.25rem 0.625rem #aaa;
+    border-bottom: 1px solid #ccc;
+    background: #edeeef;
 
     ul {
       flex-direction: column;
@@ -67,12 +66,8 @@
       margin: 0;
       padding: 0.75rem 1rem;
 
-      li a {
-        color: white;
-      }
-
       li a:hover {
-        color: $primaryYellow;
+        color: $primaryGreen;
 
         &::after {
           background: $primaryYellow;

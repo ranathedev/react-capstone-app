@@ -127,6 +127,11 @@
         img {
           position: static;
           width: 48%;
+
+          &:hover {
+            transform: scale(1) !important;
+            z-index: 1;
+          }
         }
       }
     }

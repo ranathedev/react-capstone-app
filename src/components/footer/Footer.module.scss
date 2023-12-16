@@ -1,0 +1,85 @@
+@import 'styles/common';
+
+.footer {
+  padding: 4rem 0;
+  color: $primaryGreen;
+  border-top: 1px solid #ccc;
+  background: #edeeef;
+
+  .wrapper {
+    @extend .justifyEven;
+    align-items: flex-start;
+    gap: 2rem 4rem;
+    max-width: 62.5rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+
+    img {
+      width: 9.5rem;
+    }
+
+    .listContainer {
+      transition: all 0.3s;
+
+      .listHeading {
+        font-family: 'Karla', sans-serif;
+        font-weight: 700;
+        letter-spacing: -0.75px;
+        font-size: 1.5rem;
+      }
+
+      ul {
+        list-style: none;
+        @extend .flexCol;
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+
+        li {
+          max-width: 250px;
+        }
+
+        li a {
+          position: relative;
+          font-family: 'Karla', sans-serif;
+          font-size: 1.25rem;
+
+          &::after {
+            position: absolute;
+            content: '';
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: $primaryGreen;
+            transition: all 0.3s;
+          }
+
+          &:hover {
+            color: $primaryGreen;
+
+            &::after {
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      &:first-of-type {
+        padding-left: 2rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 53rem) {
+  .footer .wrapper {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+}
+
+@media screen and (max-width: 25.125rem) {
+  .footer .wrapper .listContainer:first-of-type {
+    padding: 0 0.5rem 0 0;
+  }
+}
