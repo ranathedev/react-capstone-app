@@ -94,7 +94,11 @@ const ReservationDetails = () => {
             label="Cancel"
             onClick={e => e.preventDefault()}
           />
-          <Button label="Next" icon={<ArrowIcon />} />
+          <Button
+            label="Next"
+            icon={<ArrowIcon />}
+            onClick={e => e.preventDefault()}
+          />
         </div>
       </div>
     </div>
