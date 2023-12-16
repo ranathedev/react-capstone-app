@@ -35,7 +35,7 @@
         font-family: 'Karla', sans-serif;
         font-size: 1.25rem;
         color: #fff;
-        max-width: 23.125rem;
+        max-width: 23rem;
       }
     }
 
@@ -58,7 +58,18 @@
     align-items: center !important;
 
     article {
+      align-items: center;
       width: 100%;
+      max-width: 43.75rem;
+
+      div,
+      p {
+        text-align: center;
+      }
+
+      p {
+        max-width: 30rem;
+      }
     }
 
     .imgContainer {
@@ -71,5 +82,17 @@
 @media screen and (max-width: 34.375rem) {
   .heroSection .wrapper article {
     gap: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 25rem) {
+  .heroSection .wrapper article div {
+    h1 {
+      line-height: 0.8;
+    }
+
+    h4 {
+      margin-top: 0;
+    }
   }
 }

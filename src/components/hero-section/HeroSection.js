@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import clsx from 'clsx'
 
 import Button from 'components/button'
 
@@ -12,11 +13,13 @@ const HeroSection = ({
   showBtn = true,
   btnLabel,
   imgSrc,
+  imgAlt,
+  customClass,
 }) => {
   const navigate = useNavigate()
 
   return (
-    <section className={stl.heroSection}>
+    <section className={clsx(stl.heroSection, customClass)}>
       <div className={stl.wrapper}>
         <article>
           <div>
@@ -29,7 +32,7 @@ const HeroSection = ({
           )}
         </article>
         <div className={stl.imgContainer}>
-          <img src={imgSrc} alt="restaurant-food" />
+          <img src={imgSrc} alt={imgAlt} />
         </div>
       </div>
     </section>

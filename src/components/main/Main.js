@@ -1,8 +1,8 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 
-import HomePage from 'components/HomePage'
-import BookingPage from 'components/BookingPage'
+import HomePage from 'components/homepage'
+import BookingPage from 'components/booking-page'
 
 const Main = () => {
   return (
