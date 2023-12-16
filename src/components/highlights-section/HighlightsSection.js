@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import Button from 'components/button'
 
@@ -10,6 +11,8 @@ import BruchettaImage from 'assets/bruchetta.jpg'
 import stl from './HighlightsSection.module.scss'
 
 const HighlightsSection = () => {
+  const navigate = useNavigate()
+
   const data = [
     {
       id: 'greek-salad',
@@ -39,7 +42,10 @@ const HighlightsSection = () => {
       <div className={stl.wrapper}>
         <div className={stl.header}>
           <h2 className={stl.heading}>This weeks special!</h2>
-          <Button label="Online Menu" />
+          <Button
+            label="Online Menu"
+            onClick={() => navigate('/online-menu')}
+          />
         </div>
         <div className={stl.itemContainer}>
           {data.map(item => (

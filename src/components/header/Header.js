@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import Nav from 'components/nav'
 import useOnClickOutside from 'utils/useClickOutside'
@@ -37,15 +38,15 @@ const Header = () => {
   return (
     <header ref={headerRef} className={stl.header}>
       <div className={stl.wrapper}>
-        <a href="/">
+        <Link to="/">
           <img src="Logo.png" width={150} height={50} alt="Little Lemon Logo" />
-        </a>
+        </Link>
         <div className={stl.container}>
-          <Nav show={showMenu} />
+          <Nav show={showMenu} setShow={setShowMenu} />
           <div className={stl.actionBtns}>
-            <a href="/cart" className={stl.basketIcon}>
+            <Link to="/cart" className={stl.basketIcon}>
               <BasketIcon />
-            </a>
+            </Link>
             <button
               aria-hidden={ariaHidden}
               onClick={() => setShowMenu(!showMenu)}
