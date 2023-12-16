@@ -1,19 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import HeroSection from 'components/hero-section'
 import BookingForm from 'components/booking-form'
-import Modal from 'components/modal'
 
 import RestaurantImage from 'assets/restaurant.jpg'
 
 import stl from './BookingPage.module.scss'
 
 const BookingPage = () => {
-  const [showModal, setShowModal] = useState(false)
-
   return (
     <>
-      <Modal show={showModal} setShow={setShowModal} success={true} />
       <div className={stl.booking}>
         <HeroSection
           heading="Reserve Now"
@@ -25,7 +21,6 @@ const BookingPage = () => {
           customClass={stl.heroSection}
         />
         <BookingForm />
-        <button onClick={() => setShowModal(true)}>Show/Hide</button>
       </div>
     </>
   )

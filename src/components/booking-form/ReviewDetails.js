@@ -1,15 +1,10 @@
 import React from 'react'
 
-import Button from 'components/button'
-
-import { ReactComponent as EditIcon } from 'assets/edit.svg'
-
 import stl from './BookingForm.module.scss'
 
 const ReviewDetails = () => {
   return (
     <div className={stl.reviewDetails}>
-      <h3 className={stl.title}>Review Reservation Details</h3>
       <div className={stl.detailsContainer}>
         <div className={stl.item}>
           <span className={stl.label}>Date:</span>
@@ -49,18 +44,6 @@ const ReviewDetails = () => {
             Quite corner preferred for Business meeting. Quite corner preferred
             for Business meeting.
           </span>
-        </div>
-        <div className={stl.btnContainer}>
-          <Button
-            variant="secondary"
-            label="Edit"
-            iconLeft={<EditIcon />}
-            onClick={e => e.preventDefault()}
-          />
-          <Button
-            label="Proceed to Payment"
-            onClick={e => e.preventDefault()}
-          />
         </div>
       </div>
     </div>

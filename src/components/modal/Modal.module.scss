@@ -1,34 +1,6 @@
 @import 'styles/common';
 
 .modal {
-  position: fixed;
   @extend .flexCenter;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 10;
-  display: none;
-
-  .overlay {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    background: #00000060;
-    padding: 1rem;
-  }
-}
-
-.show {
-  display: flex;
-  animation: showModal 0.3s forwards;
-}
-
-@keyframes showModal {
-  from {
-    transform: scale(0);
-  }
-
-  to {
-    transform: scale(1);
-  }
+  margin: 5rem 0 2rem;
 }
