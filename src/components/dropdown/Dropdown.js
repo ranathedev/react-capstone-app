@@ -33,7 +33,10 @@ const Dropdown = ({ title, icon, list, handleItemClick }) => {
           <DropdownIcon />
         </div>
       </div>
-      <ul className={showList ? stl.showList : stl.hideList}>
+      <ul
+        aria-hidden={!showList}
+        className={showList ? stl.showList : stl.hideList}
+      >
         {list.map(item => (
           <li key={item} onClick={() => handleClick(item)}>
             {item}

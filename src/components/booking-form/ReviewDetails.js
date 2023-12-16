@@ -57,7 +57,10 @@ const ReviewDetails = () => {
             iconLeft={<EditIcon />}
             onClick={e => e.preventDefault()}
           />
-          <Button label="Poceed to Payment" onClick={e => e.preventDefault()} />
+          <Button
+            label="Proceed to Payment"
+            onClick={e => e.preventDefault()}
+          />
         </div>
       </div>
     </div>
