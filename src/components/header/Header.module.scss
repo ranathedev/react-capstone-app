@@ -3,7 +3,7 @@
 .header {
   @extend .flexCenter;
   height: 6rem;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid $lightGray;
 
   .wrapper {
     position: relative;
@@ -43,7 +43,7 @@
           width: 2rem;
           height: 2rem;
           background: transparent;
-          border: 1px solid #ccc;
+          border: 1px solid $lightGray;
           border-radius: 0.25rem;
           cursor: pointer;
           display: none;

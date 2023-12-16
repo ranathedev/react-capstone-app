@@ -3,8 +3,8 @@
 .footer {
   padding: 4rem 0;
   color: $primaryGreen;
-  border-top: 1px solid #ccc;
-  background: #edeeef;
+  border-top: 1px solid $lightGray;
+  background: $lightGrayishBlue;
 
   .wrapper {
     @extend .justifyEven;

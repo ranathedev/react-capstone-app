@@ -1,6 +1,8 @@
 $primaryGreen: #495e57;
 $primaryYellow: #f4ce14;
 $orange: #ee9972;
+$lightGrayishBlue: #edeeef;
+$lightGray: #ccc;
 
 .flexCenter {
   display: flex;
@@ -26,4 +28,9 @@ $orange: #ee9972;
 .justifyEven {
   display: flex;
   justify-content: space-evenly;
+}
+
+.flexColCen {
+  @extend .flexCenter;
+  @extend .flexCol;
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 
 import HeroSection from 'components/hero-section'
+import BookingForm from 'components/booking-form'
 
 import RestaurantImage from 'assets/restaurant.jpg'
 
@@ -18,7 +19,7 @@ const BookingPage = () => {
         imgRelative
         customClass={stl.heroSection}
       />
-      <h1 className={stl.heading}>This is BookingPage</h1>
+      <BookingForm />
     </div>
   )
 }
