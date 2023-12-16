@@ -1,0 +1,102 @@
+@import 'styles/common';
+
+.dropdown {
+  position: relative;
+  width: 100%;
+  margin-bottom: 0.75rem;
+
+  .header {
+    position: relative;
+    @extend .alignCen;
+    justify-content: space-between;
+    background: $lightGrayishBlue;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    cursor: pointer;
+
+    span {
+      font-family: 'Karla', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: $primaryGreen;
+    }
+  }
+
+  .active {
+    background: $primaryGreen;
+    justify-content: center;
+
+    span {
+      color: #fff;
+    }
+
+    .dropdownIcon {
+      position: absolute;
+      right: 1.25rem;
+
+      svg path {
+        fill: white;
+      }
+    }
+  }
+
+  ul {
+    position: absolute;
+    list-style: none;
+    @extend .flexColCen;
+    width: 100%;
+    margin-top: 0.625rem;
+    transition: all 0.3s;
+    transform-origin: top;
+    transform: scaleY(0);
+    display: none;
+
+    li {
+      width: 100%;
+      padding: 0.75rem 0;
+      text-align: center;
+      background: $lightGrayishBlue;
+      border-bottom: 1px dashed black;
+      font-family: 'Karla', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: $primaryGreen;
+      cursor: pointer;
+    }
+  }
+
+  .showList {
+    display: flex;
+    animation: showList 0.3s forwards;
+  }
+
+  .hideList {
+    animation: hideList 0.2s;
+  }
+}
+
+@keyframes showList {
+  from {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@keyframes hideList {
+  from {
+    display: flex;
+    transform: scaleY(1);
+    opacity: 1;
+  }
+
+  to {
+    transform: scaleY(0);
+    opacity: 0;
+    display: none;
+  }
+}

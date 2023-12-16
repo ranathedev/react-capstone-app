@@ -64,8 +64,8 @@
     top: -5rem;
     left: 0;
     transform-origin: top;
-    border-bottom: 1px solid #ccc;
-    background: #edeeef;
+    border-bottom: 1px solid $lightGray;
+    background: $lightGrayishBlue;
 
     ul {
       flex-direction: column;

@@ -1,6 +1,8 @@
 @import 'styles/common';
 
 .btn {
+  @extend .alignCen;
+  gap: 0.5rem;
   width: max-content;
   padding: 0.625rem 1.5rem;
   background: $primaryYellow;
@@ -18,4 +20,9 @@
   &:active {
     transform: scale(0.95);
   }
+}
+
+.secondary {
+  background: black;
+  color: white;
 }

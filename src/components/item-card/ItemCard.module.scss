@@ -1,12 +1,12 @@
 @import 'styles/common';
 
 .itemCard {
-  background: #edeeef;
+  background: $lightGrayishBlue;
   max-width: 17rem;
   border-radius: 0.75rem;
   overflow: hidden;
-  border: 1px solid #ccc;
-  box-shadow: 0.25rem 0.25rem 0.75rem #ccc;
+  border: 1px solid $lightGray;
+  box-shadow: 0.25rem 0.25rem 0.75rem $lightGray;
 
   img {
     width: 100%;

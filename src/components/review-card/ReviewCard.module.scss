@@ -5,7 +5,7 @@
   gap: 1.25rem;
   width: 13.25rem;
   padding: 1.5rem;
-  border: 1px solid #ccc;
+  border: 1px solid $lightGray;
   border-radius: 0.75rem;
   transition: all 0.2s;
 
@@ -35,6 +35,6 @@
   }
 
   &:hover {
-    box-shadow: 0.25rem 0.25rem 0.5rem #ccc;
+    box-shadow: 0.25rem 0.25rem 0.5rem $lightGray;
   }
 }
