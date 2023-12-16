@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import Logo from 'assets/footer_logo.png'
 
@@ -9,7 +10,7 @@ const Footer = () => {
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Menu', href: '/menu' },
-    { name: 'Reservations', href: '/reservations' },
+    { name: 'Reservations', href: '/booking' },
     { name: 'Order Online', href: '/order-online' },
     { name: 'Login', href: '/login' },
   ]
@@ -45,7 +46,7 @@ const Footer = () => {
           <ul>
             {doormatNav.map(item => (
               <li key={item.name}>
-                <a href={item.href}>{item.name}</a>
+                <Link to={item.href}>{item.name}</Link>
               </li>
             ))}
           </ul>

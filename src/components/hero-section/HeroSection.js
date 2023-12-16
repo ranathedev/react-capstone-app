@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import Button from 'components/button'
 
@@ -12,6 +13,8 @@ const HeroSection = ({
   btnLabel,
   imgSrc,
 }) => {
+  const navigate = useNavigate()
+
   return (
     <section className={stl.heroSection}>
       <div className={stl.wrapper}>
@@ -21,7 +24,9 @@ const HeroSection = ({
             <h4>{subHeading}</h4>
           </div>
           <p>{desc}</p>
-          {showBtn && <Button label={btnLabel} />}
+          {showBtn && (
+            <Button label={btnLabel} onClick={() => navigate('/booking')} />
+          )}
         </article>
         <div className={stl.imgContainer}>
           <img src={imgSrc} alt="restaurant-food" />

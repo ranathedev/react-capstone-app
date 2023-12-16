@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import { ReactComponent as BikeIcon } from 'assets/delivery-bike.svg'
 
@@ -14,9 +15,9 @@ const ItemCard = ({ id, imgSrc, title, price, desc }) => {
           <p className={stl.price}>{price}</p>
         </div>
         <p className={stl.desc}>{desc}</p>
-        <a href={`/order?id=${id}`}>
+        <Link to={`/order?id=${id}`}>
           Order a delivery <BikeIcon />
-        </a>
+        </Link>
       </div>
     </div>
   )

@@ -35,6 +35,14 @@
         }
       }
     }
+
+    li .active {
+      color: $primaryGreen;
+
+      &::after {
+        width: 100%;
+      }
+    }
   }
 }
 
@@ -65,14 +73,6 @@
       gap: 1rem;
       margin: 0;
       padding: 0.75rem 1rem;
-
-      li a:hover {
-        color: $primaryGreen;
-
-        &::after {
-          background: $primaryYellow;
-        }
-      }
     }
   }
 }
