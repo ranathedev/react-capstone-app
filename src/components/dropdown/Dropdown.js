@@ -24,10 +24,17 @@ const Dropdown = ({ title, icon, list, handleItemClick }) => {
   return (
     <div ref={listRef} className={stl.dropdown}>
       <div
-        className={clsx(stl.header, selected !== title ? stl.active : '')}
+        className={clsx(
+          stl.header,
+          title !== '' && title !== 'Branch' && title !== 'Occassion'
+            ? stl.active
+            : ''
+        )}
         onClick={() => setShowList(!showList)}
       >
-        {selected !== title ? null : icon}
+        {title !== '' && title !== 'Branch' && title !== 'Occassion'
+          ? null
+          : icon}
         <span>{selected}</span>
         <div className={stl.dropdownIcon}>
           <DropdownIcon />
@@ -45,10 +52,6 @@ const Dropdown = ({ title, icon, list, handleItemClick }) => {
       </ul>
     </div>
   )
-}
-
-Dropdown.defaultProps = {
-  handleItemClick: item => console.log(item),
 }
 
 export default Dropdown
