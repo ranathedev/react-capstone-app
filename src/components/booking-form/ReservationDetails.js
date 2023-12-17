@@ -1,7 +1,6 @@
 import React from 'react'
 import clsx from 'clsx'
 
-import Button from 'components/button'
 import Dropdown from 'components/dropdown'
 
 import { ReactComponent as BranchIcon } from 'assets/branch.svg'
@@ -9,7 +8,6 @@ import { ReactComponent as LunchIcon } from 'assets/lunch.svg'
 import { ReactComponent as DinnerIcon } from 'assets/dinner.svg'
 import { ReactComponent as IndoorIcon } from 'assets/indoor.svg'
 import { ReactComponent as OutdoorIcon } from 'assets/outdoor.svg'
-import { ReactComponent as ArrowIcon } from 'assets/arrow-right.svg'
 
 import stl from './BookingForm.module.scss'
 
@@ -24,7 +22,6 @@ const ReservationDetails = () => {
 
   return (
     <div className={stl.reservationDetails}>
-      <h3 className={stl.title}>Reservation Details</h3>
       <div className={stl.container}>
         <div className={stl.field}>
           <label>Select Date *</label>
@@ -86,19 +83,6 @@ const ReservationDetails = () => {
             <span className={stl.num}>1</span>
             <span className={stl.btn}>+</span>
           </div>
-        </div>
-
-        <div className={stl.btnContainer}>
-          <Button
-            variant="secondary"
-            label="Cancel"
-            onClick={e => e.preventDefault()}
-          />
-          <Button
-            label="Next"
-            icon={<ArrowIcon />}
-            onClick={e => e.preventDefault()}
-          />
         </div>
       </div>
     </div>

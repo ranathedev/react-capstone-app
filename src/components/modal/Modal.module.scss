@@ -1,0 +1,6 @@
+@import 'styles/common';
+
+.modal {
+  @extend .flexCenter;
+  margin: 5rem 0 2rem;
+}
