@@ -7,12 +7,14 @@ import stl from './AboutSection.module.scss'
 
 const AboutSection = () => {
   return (
-    <section className={stl.about}>
-      <h2 className={stl.heading}>About</h2>
+    <section className={stl.about} aria-labelledby="section-heading">
+      <h2 id="section-heading" className={stl.heading}>
+        About
+      </h2>
       <div className={stl.wrapper}>
-        <article>
+        <article aria-labelledby="article-heading">
           <div>
-            <h1>Little Lemon</h1>
+            <h1 id="article-heading">Little Lemon</h1>
             <h4>Chicago</h4>
           </div>
           <p>

@@ -16,16 +16,18 @@ const Nav = ({ show, setShow }) => {
 
   return (
     <nav
-      aria-hidden={!show}
       className={clsx(stl.nav, show ? stl.expand : stl.hide)}
+      aria-hidden={!show}
+      role="navigation"
     >
-      <ul>
+      <ul role="menu">
         {navLinks.map(item => (
-          <li key={item.name}>
+          <li key={item.name} role="menuitem">
             <NavLink
               to={item.href}
               className={({ isActive }) => (isActive ? stl.active : '')}
               onClick={() => setShow(false)}
+              role="link"
             >
               {item.name}
             </NavLink>

@@ -6,7 +6,7 @@ import stl from './Modal.module.scss'
 
 const Modal = ({ success }) => {
   return (
-    <div className={stl.modal}>
+    <div className={stl.modal} role="dialog" aria-modal="true">
       <DialogBox success={success} />
     </div>
   )

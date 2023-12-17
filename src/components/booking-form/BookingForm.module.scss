@@ -75,7 +75,8 @@
         }
 
         .errMsg {
-          top: 3.85rem !important;
+          top: unset;
+          bottom: 0.5rem !important;
         }
       }
 
@@ -133,7 +134,7 @@
       }
 
       .errMsg {
-        top: 1.9rem !important;
+        top: 2.1rem !important;
       }
     }
   }

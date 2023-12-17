@@ -11,14 +11,20 @@ const ContactInformation = ({ handleItemClick, formik }) => {
   const list = ['Birthday', 'Anniversary', 'Engagement']
 
   return (
-    <div className={stl.contactInfo}>
+    <div
+      className={stl.contactInfo}
+      role="group"
+      aria-labelledby="contact-information"
+    >
       <div className={stl.container}>
         <div className={stl.field}>
-          <label>Full Name *</label>
+          <label htmlFor="fullName">Full Name *</label>
           <input
+            id="fullName"
             placeholder="Enter you full name"
             {...formik.getFieldProps('fullName')}
             className={stl.input}
+            aria-required="true"
           />
           <ErrorMessage
             msg={
@@ -30,11 +36,14 @@ const ContactInformation = ({ handleItemClick, formik }) => {
         </div>
 
         <div className={stl.field}>
-          <label>Email *</label>
+          <label htmlFor="email">Email *</label>
           <input
+            id="email"
             placeholder="Enter your email"
             {...formik.getFieldProps('email')}
             className={stl.input}
+            aria-required="true"
+            aria-invalid={formik.touched.email && Boolean(formik.errors.email)}
           />
           <ErrorMessage
             msg={
@@ -44,20 +53,23 @@ const ContactInformation = ({ handleItemClick, formik }) => {
         </div>
 
         <div className={stl.field}>
-          <label>Select Occassion</label>
+          <label htmlFor="occassion">Select Occassion</label>
           <div className={stl.input}>
             <Dropdown
+              id="occassion"
               title="Occassion"
               handleItemClick={handleItemClick}
               icon={<OccassionIcon />}
               list={list}
+              aria-labelledby="occassion"
             />
           </div>
         </div>
 
         <div className={stl.field}>
-          <label>Special Instructions</label>
+          <label htmlFor="specialInstructions">Special Instructions</label>
           <textarea
+            id="specialInstructions"
             placeholder="Enter any special instructions or requests here..."
             {...formik.getFieldProps('specialInstructions')}
             className={stl.input}

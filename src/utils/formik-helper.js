@@ -3,7 +3,6 @@ import * as Yup from 'yup'
 const validationSchemas = [
   Yup.object({
     date: Yup.date().required('Date is required'),
-    time: Yup.string().oneOf(['Lunch', 'Dinner']).required('Time is required'),
     seatingPreference: Yup.string()
       .oneOf(['Indoor', 'Outdoor'])
       .required('Seating preference is required'),
@@ -32,7 +31,6 @@ const validationSchemas = [
 
 const initialValues = {
   date: '',
-  time: '',
   seatingPreference: '',
   fullName: '',
   email: '',
