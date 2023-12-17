@@ -73,10 +73,15 @@
             gap: 1rem;
           }
         }
+
+        .errMsg {
+          top: 3.85rem !important;
+        }
       }
 
       .input {
         margin-left: 1rem;
+        margin-bottom: 1rem;
       }
 
       .icon {
@@ -125,6 +130,10 @@
           text-align: center;
           font-size: 1.5rem;
         }
+      }
+
+      .errMsg {
+        top: 1.9rem !important;
       }
     }
   }

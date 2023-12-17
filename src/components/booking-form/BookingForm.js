@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Stepper from 'react-stepper-horizontal'
+import { useFormik } from 'formik'
 
+import { validationSchemas, initialValues } from 'utils/formik-helper'
 import ReservationDetails from './ReservationDetails'
 import ContactInformation from './ContactInformation'
 import ReviewDetails from './ReviewDetails'
@@ -18,18 +20,64 @@ import stl from './BookingForm.module.scss'
 const BookingForm = () => {
   const [active, setActive] = useState(0)
   const [success, setSuccess] = useState(true)
+  const [branch, setBranch] = useState('')
+  const [occassion, setOccassion] = useState('')
+  const [noOfGuests, setNoOfGuests] = useState(1)
+  const [branchErr, setBranchErr] = useState('')
+  const [noOfGuestsErr, setNoOfGuestsErr] = useState('')
   const navigate = useNavigate()
+
+  useEffect(() => {
+    setNoOfGuestsErr('')
+    setBranchErr('')
+  }, [active])
+
+  const formik = useFormik({
+    initialValues,
+    validateOnBlur: true,
+    validationSchema: validationSchemas[active],
+    onSubmit: values => {
+      if (active === 0 || active === 1) setActive(active + 1)
+      if (active === 3) {
+        setActive(4)
+        console.log(values)
+        console.log('Branch:', branch)
+        console.log('No. of Guest:', noOfGuests)
+        console.log('Occassion:', occassion)
+        setSuccess(true)
+      }
+    },
+  })
 
   const getComponent = () => {
     switch (active) {
       case 0:
-        return <ReservationDetails />
+        return (
+          <ReservationDetails
+            handleItemClick={setBranch}
+            noOfGuests={noOfGuests}
+            setNoOfGuests={setNoOfGuests}
+            branchErr={branchErr}
+            noOfGuestsErr={noOfGuestsErr}
+            setNoOfGuestsErr={setNoOfGuestsErr}
+            formik={formik}
+          />
+        )
       case 1:
-        return <ContactInformation />
+        return (
+          <ContactInformation handleItemClick={setOccassion} formik={formik} />
+        )
       case 2:
-        return <ReviewDetails />
+        return (
+          <ReviewDetails
+            formikValues={formik.values}
+            branch={branch}
+            noOfGuests={noOfGuests}
+            occassion={occassion}
+          />
+        )
       case 3:
-        return <PaymentDetails />
+        return <PaymentDetails formik={formik} />
       case 4:
         return <Modal success={success} />
       default:
@@ -44,9 +92,17 @@ const BookingForm = () => {
     { title: 'Payment Information' },
   ]
 
-  const handlePrimaryClick = e => setActive(active + 1)
+  const handlePrimaryClick = () => {
+    if (active === 0 && branch === '') setBranchErr('Branch is required')
+    else if (active === 2) setActive(3)
+    else {
+      setBranchErr('')
+      formik.submitForm()
+      formik.setTouched({})
+    }
+  }
 
-  const handleSecondaryClick = e => {
+  const handleSecondaryClick = () => {
     if (active === 0 || active === 3) navigate('/')
     else setActive(active - 1)
   }
@@ -59,9 +115,9 @@ const BookingForm = () => {
           steps={steps}
           completeColor="#495e57"
           activeColor="#ee9972"
-          activeTitleColor="#495e57"
+          completeTitleColor="#495e57"
         />
-        <form>{getComponent()}</form>
+        <form onSubmit={formik.handleSubmit}>{getComponent()}</form>
         {active >= 0 && active < 4 && (
           <div className={stl.btnContainer}>
             <Button

@@ -1,0 +1,15 @@
+.errMsg {
+  position: absolute;
+  font-family: 'Karla', sans-serif;
+  color: red;
+  display: none;
+  z-index: -1;
+  line-height: 1;
+  left: 1.2rem;
+  top: 0;
+}
+
+.show {
+  display: block;
+  top: 5.5rem;
+}
