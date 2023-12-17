@@ -5,20 +5,22 @@ import Dropdown from 'components/dropdown'
 import ErrorMessage from 'components/error-message'
 
 import { ReactComponent as BranchIcon } from 'assets/branch.svg'
-import { ReactComponent as LunchIcon } from 'assets/lunch.svg'
-import { ReactComponent as DinnerIcon } from 'assets/dinner.svg'
+import { ReactComponent as ClockIcon } from 'assets/clock.svg'
 import { ReactComponent as IndoorIcon } from 'assets/indoor.svg'
 import { ReactComponent as OutdoorIcon } from 'assets/outdoor.svg'
 
 import stl from './BookingForm.module.scss'
 
 const ReservationDetails = ({
-  handleItemClick,
+  branchItemClick,
+  branchErr,
+  timeItemClick,
   noOfGuests,
   setNoOfGuests,
-  branchErr,
   noOfGuestsErr,
   setNoOfGuestsErr,
+  availableTimes,
+  updateTimes,
   formik,
 }) => {
   const list = [
@@ -43,14 +45,25 @@ const ReservationDetails = ({
   }
 
   return (
-    <div className={stl.reservationDetails}>
+    <div
+      className={stl.reservationDetails}
+      role="group"
+      aria-labelledby="contact-information"
+    >
       <div className={stl.container}>
         <div className={stl.field}>
-          <label>Select Date *</label>
+          <label htmlFor="date">Select Date *</label>
           <input
+            id="date"
             type="date"
             {...formik.getFieldProps('date')}
+            onChange={e => {
+              updateTimes(e.target.value)
+              formik.handleChange(e)
+            }}
             className={stl.input}
+            aria-required="true"
+            aria-invalid={formik.touched.date && Boolean(formik.errors.date)}
           />
           <ErrorMessage
             msg={
@@ -60,46 +73,32 @@ const ReservationDetails = ({
         </div>
 
         <div className={stl.field}>
-          <label>Select Branch *</label>
+          <label htmlFor="branch">Select Branch *</label>
           <div className={stl.input}>
             <Dropdown
+              id="branch"
               title="Branch"
-              handleItemClick={handleItemClick}
+              handleItemClick={branchItemClick}
               icon={<BranchIcon />}
               list={list}
+              aria-required="true"
+              aria-invalid={branchErr !== ''}
             />
           </div>
           <ErrorMessage msg={branchErr} />
         </div>
 
         <div className={stl.field}>
-          <label>Select Time *</label>
-          <div className={clsx(stl.radioContainer, stl.input)}>
-            <span>
-              <input
-                type="radio"
-                {...formik.getFieldProps('time')}
-                value="Lunch"
-              />
-              <label>
-                <LunchIcon /> Lunch
-              </label>
-            </span>
-            <span>
-              <input
-                type="radio"
-                {...formik.getFieldProps('time')}
-                value="Dinner"
-              />
-              <label>
-                <DinnerIcon /> Dinner
-              </label>
-            </span>
-            <ErrorMessage
-              msg={
-                formik.touched.time && formik.errors.time && formik.errors.time
-              }
-              customClass={stl.errMsg}
+          <label htmlFor="branch">Select Time *</label>
+          <div className={stl.input}>
+            <Dropdown
+              variant="times"
+              id="time"
+              title="Time"
+              handleItemClick={timeItemClick}
+              icon={<ClockIcon />}
+              list={availableTimes}
+              aria-required="true"
             />
           </div>
         </div>
@@ -109,21 +108,23 @@ const ReservationDetails = ({
           <div className={clsx(stl.radioContainer, stl.input)}>
             <span>
               <input
+                id="indoor"
                 type="radio"
                 {...formik.getFieldProps('seatingPreference')}
                 value="Indoor"
               />
-              <label>
+              <label htmlFor="indoor">
                 <IndoorIcon /> Indoor
               </label>
             </span>
             <span>
               <input
+                id="outdoor"
                 type="radio"
                 {...formik.getFieldProps('seatingPreference')}
                 value="Outdoor"
               />
-              <label>
+              <label htmlFor="outdoor">
                 <OutdoorIcon /> Outdoor
               </label>
             </span>
@@ -139,8 +140,8 @@ const ReservationDetails = ({
         </div>
 
         <div className={clsx(stl.field, stl.numOfGuests)}>
-          <label>No. of Guests *</label>
-          <div className={stl.counter}>
+          <label htmlFor="noOfGuests">No. of Guests *</label>
+          <div id="noOfGuests" className={stl.counter}>
             <span className={stl.btn} onClick={handleDecrease}>
               -
             </span>

@@ -6,8 +6,10 @@ import stl from './ErrorMessage.module.scss'
 const ErrorMessage = ({ msg = '', customClass }) => {
   return (
     <div
-      aria-hidden={msg === ''}
       className={clsx(stl.errMsg, customClass, msg !== '' ? stl.show : '')}
+      aria-hidden={msg === ''}
+      aria-live="assertive"
+      aria-atomic="true"
     >
       {msg}
     </div>

@@ -9,9 +9,15 @@ const Button = ({
   iconLeft,
   iconRight,
   onClick,
+  ariaLabel,
 }) => {
   return (
-    <button className={clsx(stl.btn, stl[variant])} onClick={onClick}>
+    <button
+      className={clsx(stl.btn, stl[variant])}
+      aria-label={ariaLabel}
+      aria-live="polite"
+      onClick={onClick}
+    >
       {iconLeft}
       {label}
       {iconRight}

@@ -36,21 +36,26 @@ const Header = () => {
   useOnClickOutside(() => setShowMenu(false), headerRef)
 
   return (
-    <header ref={headerRef} className={stl.header}>
+    <header ref={headerRef} className={stl.header} role="banner">
       <div className={stl.wrapper}>
-        <Link to="/">
+        <Link to="/" aria-label="Home">
           <img src="Logo.png" width={150} height={50} alt="Little Lemon Logo" />
         </Link>
         <div className={stl.container}>
           <Nav show={showMenu} setShow={setShowMenu} />
           <div className={stl.actionBtns}>
-            <Link to="/cart" className={stl.basketIcon}>
+            <Link
+              to="/cart"
+              className={stl.basketIcon}
+              aria-label="Shopping Cart"
+            >
               <BasketIcon />
             </Link>
             <button
-              aria-hidden={ariaHidden}
               onClick={() => setShowMenu(!showMenu)}
               className={stl.menuBtn}
+              aria-hidden={ariaHidden}
+              aria-expanded={showMenu}
             >
               <MenuIcon />
             </button>

@@ -8,14 +8,23 @@ import stl from './BookingForm.module.scss'
 
 const PaymentDetails = ({ formik }) => {
   return (
-    <div className={stl.paymentDetails}>
+    <div
+      className={stl.paymentDetails}
+      role="group"
+      aria-labelledby="payment-details"
+    >
       <div className={stl.container}>
         <div className={stl.field}>
-          <label>Card Number *</label>
+          <label htmlFor="cardNumber">Card Number *</label>
           <input
+            id="cardNumber"
             placeholder="Enter card number"
             {...formik.getFieldProps('cardNumber')}
             className={stl.input}
+            aria-required="true"
+            aria-invalid={
+              formik.touched.cardNumber && Boolean(formik.errors.cardNumber)
+            }
           />
           <span className={stl.icon}>
             <PayCardIcon />
@@ -30,11 +39,17 @@ const PaymentDetails = ({ formik }) => {
         </div>
 
         <div className={stl.field}>
-          <label>Expiration Date *</label>
+          <label htmlFor="expirationDate">Expiration Date *</label>
           <input
+            id="expirationDate"
             placeholder="MM/YY"
             {...formik.getFieldProps('expirationDate')}
             className={stl.input}
+            aria-required="true"
+            aria-invalid={
+              formik.touched.expirationDate &&
+              Boolean(formik.errors.expirationDate)
+            }
           />
           <span className={stl.icon}>
             <PayCardIcon />
@@ -49,11 +64,14 @@ const PaymentDetails = ({ formik }) => {
         </div>
 
         <div className={stl.field}>
-          <label>CVV *</label>
+          <label htmlFor="cvv">CVV *</label>
           <input
+            id="cvv"
             placeholder="Enter CVV"
             {...formik.getFieldProps('cvv')}
             className={stl.input}
+            aria-required="true"
+            aria-invalid={formik.touched.cvv && Boolean(formik.errors.cvv)}
           />
           <span className={stl.icon}>
             <PayCardIcon />
@@ -64,11 +82,17 @@ const PaymentDetails = ({ formik }) => {
         </div>
 
         <div className={stl.field}>
-          <label>Cardholder Name *</label>
+          <label htmlFor="cardHolderName">Cardholder Name *</label>
           <input
+            id="cardHolderName"
             placeholder="Full Name"
             {...formik.getFieldProps('cardHolderName')}
             className={stl.input}
+            aria-required="true"
+            aria-invalid={
+              formik.touched.cardHolderName &&
+              Boolean(formik.errors.cardHolderName)
+            }
           />
           <span className={stl.icon}>
             <PayCardIcon />

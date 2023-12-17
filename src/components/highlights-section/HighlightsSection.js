@@ -38,10 +38,12 @@ const HighlightsSection = () => {
   ]
 
   return (
-    <section className={stl.highlights}>
+    <section className={stl.highlights} aria-labelledby="section-heading">
       <div className={stl.wrapper}>
         <div className={stl.header}>
-          <h2 className={stl.heading}>This weeks special!</h2>
+          <h2 id="section-heading" className={stl.heading}>
+            This weeks special!
+          </h2>
           <Button
             label="Online Menu"
             onClick={() => navigate('/online-menu')}

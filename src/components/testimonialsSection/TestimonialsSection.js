@@ -41,10 +41,10 @@ const TestimonialsSection = () => {
     },
   ]
   return (
-    <section className={stl.testimonials}>
+    <section className={stl.testimonials} aria-label="Testimonials">
       <div className={stl.wrapper}>
         <h2 className={stl.heading}>Testimonials</h2>
-        <div className={stl.cardsContainer}>
+        <div className={stl.cardsContainer} role="group">
           {data.map(item => (
             <ReviewCard key={item.id} {...item} />
           ))}

@@ -17,7 +17,7 @@ import { ReactComponent as EditIcon } from 'assets/edit.svg'
 
 import stl from './BookingForm.module.scss'
 
-const BookingForm = () => {
+const BookingForm = ({ availableTimes, updateTimes }) => {
   const [active, setActive] = useState(0)
   const [success, setSuccess] = useState(true)
   const [branch, setBranch] = useState('')
@@ -25,6 +25,7 @@ const BookingForm = () => {
   const [noOfGuests, setNoOfGuests] = useState(1)
   const [branchErr, setBranchErr] = useState('')
   const [noOfGuestsErr, setNoOfGuestsErr] = useState('')
+  const [time, setTime] = useState('')
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -37,6 +38,7 @@ const BookingForm = () => {
     validateOnBlur: true,
     validationSchema: validationSchemas[active],
     onSubmit: values => {
+      formik.setTouched({})
       if (active === 0 || active === 1) setActive(active + 1)
       if (active === 3) {
         setActive(4)
@@ -44,6 +46,7 @@ const BookingForm = () => {
         console.log('Branch:', branch)
         console.log('No. of Guest:', noOfGuests)
         console.log('Occassion:', occassion)
+        console.log('Time:', time)
         setSuccess(true)
       }
     },
@@ -54,12 +57,15 @@ const BookingForm = () => {
       case 0:
         return (
           <ReservationDetails
-            handleItemClick={setBranch}
+            branchItemClick={setBranch}
             noOfGuests={noOfGuests}
             setNoOfGuests={setNoOfGuests}
             branchErr={branchErr}
             noOfGuestsErr={noOfGuestsErr}
             setNoOfGuestsErr={setNoOfGuestsErr}
+            availableTimes={availableTimes}
+            timeItemClick={setTime}
+            updateTimes={updateTimes}
             formik={formik}
           />
         )
@@ -74,6 +80,7 @@ const BookingForm = () => {
             branch={branch}
             noOfGuests={noOfGuests}
             occassion={occassion}
+            time={time}
           />
         )
       case 3:
@@ -98,7 +105,6 @@ const BookingForm = () => {
     else {
       setBranchErr('')
       formik.submitForm()
-      formik.setTouched({})
     }
   }
 
@@ -108,7 +114,7 @@ const BookingForm = () => {
   }
 
   return (
-    <div className={stl.bookingForm}>
+    <div className={stl.bookingForm} role="form" aria-label="Reservation Form">
       <div className={stl.wrapper}>
         <Stepper
           activeStep={active}
@@ -116,8 +122,11 @@ const BookingForm = () => {
           completeColor="#495e57"
           activeColor="#ee9972"
           completeTitleColor="#495e57"
+          aria-label="Booking Progress Stepper"
         />
-        <form onSubmit={formik.handleSubmit}>{getComponent()}</form>
+        <form onSubmit={formik.handleSubmit} aria-live="polite" role="tabpanel">
+          {getComponent()}
+        </form>
         {active >= 0 && active < 4 && (
           <div className={stl.btnContainer}>
             <Button
@@ -133,6 +142,12 @@ const BookingForm = () => {
                 (active === 2 && <EditIcon />)
               }
               onClick={handleSecondaryClick}
+              ariaLabel={
+                (active === 0 && 'Cancel') ||
+                (active === 1 && 'Back') ||
+                (active === 2 && 'Edit') ||
+                (active === 3 && 'Cancel')
+              }
             />
             <Button
               label={
@@ -146,6 +161,12 @@ const BookingForm = () => {
                 (active === 1 && <ArrowRight />)
               }
               onClick={handlePrimaryClick}
+              ariaLabel={
+                (active === 0 && 'Next') ||
+                (active === 1 && 'Next') ||
+                (active === 2 && 'Proceed to Payment') ||
+                (active === 3 && 'Submit Payment')
+              }
             />
           </div>
         )}
