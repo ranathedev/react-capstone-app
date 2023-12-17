@@ -12,9 +12,6 @@ import { ReactComponent as OutdoorIcon } from 'assets/outdoor.svg'
 import stl from './BookingForm.module.scss'
 
 const ReservationDetails = ({
-  branchItemClick,
-  branchErr,
-  timeItemClick,
   noOfGuests,
   setNoOfGuests,
   noOfGuestsErr,
@@ -23,7 +20,7 @@ const ReservationDetails = ({
   updateTimes,
   formik,
 }) => {
-  const list = [
+  const branchList = [
     'Crunchville Plaza 1',
     'Crunchville Plaza 2',
     'Crunchville Plaza 3',
@@ -77,30 +74,37 @@ const ReservationDetails = ({
           <div className={stl.input}>
             <Dropdown
               id="branch"
-              title="Branch"
-              handleItemClick={branchItemClick}
+              list={branchList}
+              formikProps={formik.getFieldProps('branch')}
               icon={<BranchIcon />}
-              list={list}
-              aria-required="true"
-              aria-invalid={branchErr !== ''}
             />
           </div>
-          <ErrorMessage msg={branchErr} />
+          <ErrorMessage
+            msg={
+              formik.touched.branch &&
+              formik.errors.branch &&
+              formik.errors.branch
+            }
+            customClass={stl.dropdownErr}
+          />
         </div>
 
         <div className={stl.field}>
-          <label htmlFor="branch">Select Time *</label>
+          <label htmlFor="time">Select Time *</label>
           <div className={stl.input}>
             <Dropdown
-              variant="times"
               id="time"
-              title="Time"
-              handleItemClick={timeItemClick}
-              icon={<ClockIcon />}
               list={availableTimes}
-              aria-required="true"
+              formikProps={formik.getFieldProps('time')}
+              icon={<ClockIcon />}
             />
           </div>
+          <ErrorMessage
+            msg={
+              formik.touched.time && formik.errors.time && formik.errors.time
+            }
+            customClass={stl.dropdownErr}
+          />
         </div>
 
         <div className={stl.field}>

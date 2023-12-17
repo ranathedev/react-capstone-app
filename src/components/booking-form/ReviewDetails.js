@@ -2,13 +2,7 @@ import React from 'react'
 
 import stl from './BookingForm.module.scss'
 
-const ReviewDetails = ({
-  formikValues,
-  branch,
-  noOfGuests,
-  occassion,
-  time,
-}) => {
+const ReviewDetails = ({ formikValues, noOfGuests }) => {
   return (
     <div
       className={stl.reviewDetails}
@@ -32,7 +26,7 @@ const ReviewDetails = ({
           aria-live="polite"
         >
           <span className={stl.label}>Branch:</span>
-          <span className={stl.value}>{branch}</span>
+          <span className={stl.value}>{formikValues.branch}</span>
         </div>
         <div
           className={stl.item}
@@ -41,7 +35,7 @@ const ReviewDetails = ({
           aria-labelledby="label-time"
         >
           <span className={stl.label}>Time :</span>
-          <span className={stl.value}>{time}</span>
+          <span className={stl.value}>{formikValues.time}</span>
         </div>
         <div
           role="listitem"
@@ -81,12 +75,12 @@ const ReviewDetails = ({
         </div>
         <div
           role="listitem"
-          aria-labelledby="label-occassion"
+          aria-labelledby="label-occasion"
           aria-live="polite"
           className={stl.item}
         >
           <span className={stl.label}>Ocassion:</span>
-          <span className={stl.value}>{occassion}</span>
+          <span className={stl.value}>{formikValues.occasion}</span>
         </div>
         <div
           role="listitem"
