@@ -24,12 +24,25 @@ function fetchAPI(date) {
   return result
 }
 
-function submitAPI(formData) {
-  console.log(formData)
-  const id = generateBookingId()
-  return id
-}
-
 const generateBookingId = () => Math.random().toString(36).slice(2, 14)
+
+function submitAPI(formData) {
+  if (formData) {
+    try {
+      localStorage.setItem('booking', JSON.stringify(formData))
+    } catch (err) {
+      if (err) {
+        return null
+      }
+    }
+
+    const data = localStorage.getItem('booking')
+    if (data) {
+      const id = generateBookingId()
+      return id
+    } else return null
+  }
+  return null
+}
 
 export { fetchAPI, submitAPI, generateBookingId }

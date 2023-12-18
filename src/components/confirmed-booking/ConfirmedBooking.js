@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useLocation, useNavigate, Navigate } from 'react-router-dom'
 
 import BookingDetails from 'components/booking-details'
@@ -10,22 +10,6 @@ const ConfirmedBooking = () => {
   const location = useLocation()
   const navigate = useNavigate()
   const data = location?.state
-
-  useEffect(() => {
-    if (data) {
-      const previousData = localStorage.getItem('little-lemon-bookings')
-      if (previousData) {
-        const parsedData = JSON.parse(previousData)
-        parsedData.push(data)
-        localStorage.setItem(
-          'little-lemon-bookings',
-          JSON.stringify(parsedData)
-        )
-      } else {
-        localStorage.setItem('little-lemon-bookings', JSON.stringify([data]))
-      }
-    }
-  }, [data])
 
   if (!data) return <Navigate to="/booking" />
 
