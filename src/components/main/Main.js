@@ -1,9 +1,10 @@
 import React, { useReducer } from 'react'
 import { Routes, Route } from 'react-router-dom'
 
+import { fetchAPI } from 'utils/fetchData'
 import HomePage from 'components/homepage'
 import BookingPage from 'components/booking-page'
-import { fetchAPI } from 'utils/fetchData'
+import ConfirmedBooking from 'components/confirmed-booking'
 
 // const timesReducer = (state, action) => {
 //   switch (action.type) {
@@ -43,6 +44,7 @@ const Main = () => {
             />
           }
         />
+         <Route path="/confirmed-booking" element={<ConfirmedBooking />} />
       </Routes>
     </main>
   )

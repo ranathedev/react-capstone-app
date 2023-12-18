@@ -139,17 +139,5 @@ test('BookingForm flow works correctly', async () => {
     userEvent.click(primaryBtn)
   })
 
-  const dialogTitle = screen.getByText('Table Reserved Successfully')
-  const dialogBtn = screen.getByTestId('dialog-btn')
-
-  expect(dialogTitle).toBeInTheDocument()
-  expect(dialogBtn).toBeInTheDocument()
-
-  await act(() => {
-    userEvent.click(dialogBtn)
-  })
-
-  const bookingDetailsCaption = screen.getByText('Your Booking Details')
-
-  expect(bookingDetailsCaption).toBeInTheDocument()
+  expect(window.location.pathname).toBe('/confirmed-booking')
 })

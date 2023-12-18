@@ -32,7 +32,7 @@ const DialogBox = ({ success = true, handleClick }) => {
       </p>
       <Button
         dataTestId="dialog-btn"
-        label={success ? 'See Details' : 'Reserve again'}
+        label={success ? 'See Details' : 'Try again'}
         onClick={onClickHandler}
       />
     </div>
