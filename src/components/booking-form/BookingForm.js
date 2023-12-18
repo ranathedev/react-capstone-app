@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import Stepper from 'react-stepper-horizontal'
 import { useFormik } from 'formik'
 
@@ -22,7 +21,6 @@ const BookingForm = ({ availableTimes, updateTimes }) => {
   const [success, setSuccess] = useState(true)
   const [noOfGuests, setNoOfGuests] = useState(1)
   const [noOfGuestsErr, setNoOfGuestsErr] = useState('')
-  const navigate = useNavigate()
 
   useEffect(() => {
     setNoOfGuestsErr('')
@@ -37,8 +35,7 @@ const BookingForm = ({ availableTimes, updateTimes }) => {
       if (active === 0 || active === 1) setActive(active + 1)
       if (active === 3) {
         setActive(4)
-        console.log(values)
-        console.log('No. of Guest:', noOfGuests)
+        console.log({ ...values, noOfGuests })
         setSuccess(true)
       }
     },
@@ -88,7 +85,7 @@ const BookingForm = ({ availableTimes, updateTimes }) => {
   }
 
   const handleSecondaryClick = () => {
-    if (active === 0 || active === 3) navigate('/')
+    if (active === 0 || active === 3) window.location.href = '/'
     else setActive(active - 1)
   }
 
@@ -103,12 +100,18 @@ const BookingForm = ({ availableTimes, updateTimes }) => {
           completeTitleColor="#495e57"
           aria-label="Booking Progress Stepper"
         />
-        <form onSubmit={formik.handleSubmit} aria-live="polite" role="tabpanel">
+        <form
+          data-testid="booking-form"
+          onSubmit={formik.handleSubmit}
+          aria-live="polite"
+          role="tabpanel"
+        >
           {getComponent()}
         </form>
         {active >= 0 && active < 4 && (
           <div className={stl.btnContainer}>
             <Button
+              dataTestId="secondary-btn"
               variant="secondary"
               label={
                 (active === 0 && 'Cancel') ||
@@ -120,15 +123,16 @@ const BookingForm = ({ availableTimes, updateTimes }) => {
                 (active === 1 && <ArrowLeft />) ||
                 (active === 2 && <EditIcon />)
               }
-              onClick={handleSecondaryClick}
               ariaLabel={
                 (active === 0 && 'Cancel') ||
                 (active === 1 && 'Back') ||
                 (active === 2 && 'Edit') ||
                 (active === 3 && 'Cancel')
               }
+              onClick={handleSecondaryClick}
             />
             <Button
+              dataTestId="primary-btn"
               label={
                 (active === 0 && 'Next') ||
                 (active === 1 && 'Next') ||
@@ -139,13 +143,13 @@ const BookingForm = ({ availableTimes, updateTimes }) => {
                 (active === 0 && <ArrowRight />) ||
                 (active === 1 && <ArrowRight />)
               }
-              onClick={handlePrimaryClick}
               ariaLabel={
                 (active === 0 && 'Next') ||
                 (active === 1 && 'Next') ||
                 (active === 2 && 'Proceed to Payment') ||
                 (active === 3 && 'Submit Payment')
               }
+              onClick={handlePrimaryClick}
             />
           </div>
         )}

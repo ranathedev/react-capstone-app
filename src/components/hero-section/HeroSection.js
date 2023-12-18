@@ -1,5 +1,4 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
 import clsx from 'clsx'
 
 import Button from 'components/button'
@@ -17,8 +16,6 @@ const HeroSection = ({
   imgAlt,
   customClass,
 }) => {
-  const navigate = useNavigate()
-
   return (
     <section
       id={id}
@@ -33,7 +30,10 @@ const HeroSection = ({
           </div>
           <p>{desc}</p>
           {showBtn && (
-            <Button label={btnLabel} onClick={() => navigate('/booking')} />
+            <Button
+              label={btnLabel}
+              onClick={() => (window.location.href = '/booking')}
+            />
           )}
         </article>
         <div className={stl.imgContainer}>

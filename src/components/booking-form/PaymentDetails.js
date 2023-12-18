@@ -18,6 +18,7 @@ const PaymentDetails = ({ formik }) => {
           <label htmlFor="cardNumber">Card Number *</label>
           <input
             id="cardNumber"
+            data-testid="cardNumber"
             placeholder="Enter card number"
             {...formik.getFieldProps('cardNumber')}
             className={stl.input}
@@ -42,6 +43,7 @@ const PaymentDetails = ({ formik }) => {
           <label htmlFor="expirationDate">Expiration Date *</label>
           <input
             id="expirationDate"
+            data-testid="expirationDate"
             placeholder="MM/YY"
             {...formik.getFieldProps('expirationDate')}
             className={stl.input}
@@ -68,6 +70,7 @@ const PaymentDetails = ({ formik }) => {
           <input
             id="cvv"
             placeholder="Enter CVV"
+            data-testid="cvv"
             {...formik.getFieldProps('cvv')}
             className={stl.input}
             aria-required="true"
@@ -85,6 +88,7 @@ const PaymentDetails = ({ formik }) => {
           <label htmlFor="cardHolderName">Cardholder Name *</label>
           <input
             id="cardHolderName"
+            data-testid="cardHolderName"
             placeholder="Full Name"
             {...formik.getFieldProps('cardHolderName')}
             className={stl.input}

@@ -4,33 +4,32 @@ import { Routes, Route } from 'react-router-dom'
 import HomePage from 'components/homepage'
 import BookingPage from 'components/booking-page'
 
-const timesReducer = (state, action) => {
-  switch (action.type) {
-    case 'UPDATE_TIMES':
-      return action.payload
-    default:
-      return state
-  }
+// const timesReducer = (state, action) => {
+//   switch (action.type) {
+//     case 'UPDATE_TIMES':
+//       return action.payload
+//     default:
+//       return state
+//   }
+// }
+
+const initializeTimes = () => {
+  return ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00']
+}
+const updateTimes = (state, date) => {
+  console.log('List updated with Date:', date)
+  return state
 }
 
 const Main = () => {
-  const initializeTimes = () => {
-    return ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00']
-  }
-  const updateTimes = selectedDate => {
-    console.log(selectedDate)
-    const updatedTimes = [...availableTimes, selectedDate]
-    dispatch({ type: 'UPDATE_TIMES', payload: updatedTimes })
-  }
-
   const [availableTimes, dispatch] = useReducer(
-    timesReducer,
+    updateTimes,
     [],
     initializeTimes
   )
 
   return (
-    <main role="main">
+    <main data-testid="main" role="main">
       <Routes>
          <Route path="/" element={<HomePage />} />
         <Route
@@ -38,7 +37,7 @@ const Main = () => {
           element={
             <BookingPage
               availableTimes={availableTimes}
-              updateTimes={updateTimes}
+              updateTimes={dispatch}
             />
           }
         />
@@ -48,3 +47,4 @@ const Main = () => {
 }
 
 export default Main
+export { updateTimes, initializeTimes }
