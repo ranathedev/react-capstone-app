@@ -50,6 +50,7 @@ const Header = () => {
           <Nav show={showMenu} setShow={setShowMenu} />
           <div className={stl.actionBtns}>
             <Link
+              title="shopping-cart"
               to="/cart"
               className={stl.basketIcon}
               aria-label="Shopping Cart"

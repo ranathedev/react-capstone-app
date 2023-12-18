@@ -7,7 +7,11 @@ import stl from './AboutSection.module.scss'
 
 const AboutSection = () => {
   return (
-    <section className={stl.about} aria-labelledby="about-section-heading">
+    <section
+      id="about"
+      className={stl.about}
+      aria-labelledby="about-section-heading"
+    >
       <h2 id="about-section-heading" className={stl.heading}>
         About
       </h2>

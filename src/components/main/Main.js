@@ -5,6 +5,8 @@ import { fetchAPI } from 'utils/fetchData'
 import HomePage from 'components/homepage'
 import BookingPage from 'components/booking-page'
 import ConfirmedBooking from 'components/confirmed-booking'
+import AboutPage from 'components/AboutPage'
+import MenuPage from 'components/MenuPage'
 
 // const timesReducer = (state, action) => {
 //   switch (action.type) {
@@ -35,6 +37,9 @@ const Main = () => {
     <main data-testid="main" role="main">
       <Routes>
          <Route path="/" element={<HomePage />} />
+         <Route path="/about" element={<AboutPage />} />
+         <Route path="/menu" element={<MenuPage />} />
+         <Route path="/order-online" element={<MenuPage />} />
         <Route
           path="/booking"
           element={
