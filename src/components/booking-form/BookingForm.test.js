@@ -1,12 +1,17 @@
 import { render, screen } from '@testing-library/react'
+import { BrowserRouter as Router } from 'react-router-dom'
 import userEvent from '@testing-library/user-event'
-import BookingPage from 'components/booking-page'
 import { act } from 'react-dom/test-utils'
+import { fetchAPI } from 'utils/fetchData'
+
+import BookingPage from 'components/booking-page'
 
 // mock-values
-const dateVal = '2023-12-17'
+// date must be today or later
+const dateVal = '2023-12-20'
+const availableTimes = fetchAPI(dateVal)
 const branchVal = 'Crunchville Plaza 3'
-const timeVal = '19:00'
+const timeVal = availableTimes[1]
 const seatingVal = 'Outdoor'
 const fullNameVal = 'Aftab Rehan'
 const emailVal = 'johndoe@domain.com'
@@ -19,16 +24,20 @@ const cardHolderNameVal = 'John Doe'
 
 test('BookingForm flow works correctly', async () => {
   // mock data for availableTimes
-  const availableTimes = ['17:00', '18:00', '19:00', '20:00']
+
+  const availableTimes = fetchAPI(dateVal)
 
   // mock function for updateTimes
   const updateTimes = date => {
-    console.log('Selected Date:', date)
-    return availableTimes
+    const res = fetchAPI(dateVal)
+    return res
   }
 
+  // using with router because it was giving error for useNavigate()
   render(
-    <BookingPage availableTimes={availableTimes} updateTimes={updateTimes} />
+    <Router>
+      <BookingPage availableTimes={availableTimes} updateTimes={updateTimes} />
+    </Router>
   )
 
   // Step: 1 - Reservation Details
@@ -131,6 +140,16 @@ test('BookingForm flow works correctly', async () => {
   })
 
   const dialogTitle = screen.getByText('Table Reserved Successfully')
+  const dialogBtn = screen.getByTestId('dialog-btn')
 
   expect(dialogTitle).toBeInTheDocument()
+  expect(dialogBtn).toBeInTheDocument()
+
+  await act(() => {
+    userEvent.click(dialogBtn)
+  })
+
+  const bookingDetailsCaption = screen.getByText('Your Booking Details')
+
+  expect(bookingDetailsCaption).toBeInTheDocument()
 })

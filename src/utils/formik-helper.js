@@ -2,7 +2,15 @@ import * as Yup from 'yup'
 
 const validationSchemas = [
   Yup.object({
-    date: Yup.date().required('Date is required'),
+    date: Yup.date()
+      .required('Date is required')
+      .test(
+        'not-previous-to-today',
+        'Entered date must be today or later',
+        function (value) {
+          return new Date(value) >= new Date()
+        }
+      ),
     branch: Yup.string().required('Branch is required'),
     time: Yup.string().required('Time is required'),
     seatingPreference: Yup.string()
