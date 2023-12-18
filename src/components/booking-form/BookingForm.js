@@ -91,7 +91,7 @@ const BookingForm = ({ availableTimes, updateTimes }) => {
   }
 
   return success ? (
-    <div className={stl.bookingForm} role="form" aria-label="Reservation Form">
+    <div className={stl.bookingForm} aria-label="Reservation Form">
       <div className={stl.wrapper}>
         <Stepper
           activeStep={active}

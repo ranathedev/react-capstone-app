@@ -7,18 +7,18 @@ import stl from './ItemCard.module.scss'
 
 const ItemCard = ({ id, imgSrc, title, price, desc }) => {
   return (
-    <div className={stl.itemCard}>
+    <div tabIndex="0" className={stl.itemCard}>
       <img src={imgSrc} alt={id} />
-      <div className={stl.content}>
+      <article className={stl.content}>
         <div className={stl.cardHeader}>
-          <h4 className={stl.title}>{title}</h4>
+          <h3 className={stl.title}>{title}</h3>
           <p className={stl.price}>{price}</p>
         </div>
         <p className={stl.desc}>{desc}</p>
         <Link to={`/order?id=${id}`}>
           Order a delivery <BikeIcon />
         </Link>
-      </div>
+      </article>
     </div>
   )
 }

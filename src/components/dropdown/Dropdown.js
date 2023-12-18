@@ -11,7 +11,12 @@ const Dropdown = ({ id, dataTestId, list, formikProps, icon }) => {
       <span className={stl.arrow}>
         <DropdownArrow />
       </span>
-      <select id={id} data-testid={dataTestId} {...formikProps}>
+      <select
+        id={id}
+        data-testid={dataTestId}
+        {...formikProps}
+        aria-required={true}
+      >
         {list.map(item => (
           <option key={item} value={item} label={item}>
             {item}

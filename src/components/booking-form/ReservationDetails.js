@@ -46,7 +46,6 @@ const ReservationDetails = ({
       data-testid="reservation-details-step"
       className={stl.reservationDetails}
       role="group"
-      aria-labelledby="contact-information"
     >
       <div className={stl.container}>
         <div className={stl.field}>

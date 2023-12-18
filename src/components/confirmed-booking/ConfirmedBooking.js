@@ -14,9 +14,12 @@ const ConfirmedBooking = () => {
   if (!data) return <Navigate to="/booking" />
 
   return (
-    <section className={stl.confimedBooking}>
+    <section
+      className={stl.confimedBooking}
+      aria-labelledby="booking-confirmation-heading"
+    >
       <div className={stl.header}>
-        <h2>Table Reserved Successfully</h2>
+        <h2 id="booking-confirmation-heading">Table Reserved Successfully</h2>
         <p>Thank you for choosing us. Your reservation was successful!</p>
       </div>
       <BookingDetails data={data} />

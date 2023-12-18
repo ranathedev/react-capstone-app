@@ -11,11 +11,7 @@ const ContactInformation = ({ formik }) => {
   const occasionList = ['Birthday', 'Anniversary', 'Engagement']
 
   return (
-    <div
-      className={stl.contactInfo}
-      role="group"
-      aria-labelledby="contact-information"
-    >
+    <div className={stl.contactInfo} role="group">
       <div className={stl.container}>
         <div className={stl.field}>
           <label htmlFor="fullName">Full Name *</label>

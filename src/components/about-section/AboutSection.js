@@ -1,21 +1,21 @@
 import React from 'react'
 
-import ImageA from 'assets/Mario-and-Adrian-A.jpg'
-import ImageB from 'assets/Mario-and-Adrian-B.jpg'
+import ImageA from 'assets/Mario-and-Adrian-A.webp'
+import ImageB from 'assets/Mario-and-Adrian-B.webp'
 
 import stl from './AboutSection.module.scss'
 
 const AboutSection = () => {
   return (
-    <section className={stl.about} aria-labelledby="section-heading">
-      <h2 id="section-heading" className={stl.heading}>
+    <section className={stl.about} aria-labelledby="about-section-heading">
+      <h2 id="about-section-heading" className={stl.heading}>
         About
       </h2>
       <div className={stl.wrapper}>
         <article aria-labelledby="article-heading">
           <div>
             <h1 id="article-heading">Little Lemon</h1>
-            <h4>Chicago</h4>
+            <h2>Chicago</h2>
           </div>
           <p>
             We are a Family owned Meditterranian, restaurant, focused on

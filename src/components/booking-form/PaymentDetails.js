@@ -8,11 +8,7 @@ import stl from './BookingForm.module.scss'
 
 const PaymentDetails = ({ formik }) => {
   return (
-    <div
-      className={stl.paymentDetails}
-      role="group"
-      aria-labelledby="payment-details"
-    >
+    <div className={stl.paymentDetails} role="group">
       <div className={stl.container}>
         <div className={stl.field}>
           <label htmlFor="cardNumber">Card Number *</label>

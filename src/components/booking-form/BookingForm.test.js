@@ -6,6 +6,8 @@ import { fetchAPI } from 'utils/fetchData'
 
 import BookingPage from 'components/booking-page'
 
+// To check if it properly works, change these valid values to Invalid. Invalid values will fail the test.
+
 // mock-values
 // date must be today or later
 const dateVal = '2023-12-20'

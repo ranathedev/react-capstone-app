@@ -5,7 +5,7 @@ import HighlightsSection from 'components/highlights-section'
 import TestimonialsSection from 'components/testimonialsSection'
 import AboutSection from 'components/about-section'
 
-import HeroImageA from 'assets/restaurantfood.jpg'
+import HeroImageA from 'assets/restaurantfood.webp'
 import HeroImageB from 'assets/restaurantfood-B.jpg'
 
 const HomePage = () => {
