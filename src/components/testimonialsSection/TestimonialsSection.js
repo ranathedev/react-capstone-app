@@ -2,10 +2,10 @@ import React from 'react'
 
 import ReviewCard from 'components/review-card'
 
-import JohnImage from 'assets/users/John.jpg'
-import TillyImage from 'assets/users/Tilly.jpg'
-import KatieImage from 'assets/users/Katie.jpg'
-import JustinImage from 'assets/users/Justin.jpg'
+import JohnImage from 'assets/users/John.webp'
+import TillyImage from 'assets/users/Tilly.webp'
+import KatieImage from 'assets/users/Katie.webp'
+import JustinImage from 'assets/users/Justin.webp'
 
 import stl from './TestimonialsSection.module.scss'
 

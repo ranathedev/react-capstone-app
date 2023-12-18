@@ -25,14 +25,14 @@ const DialogBox = ({ success = true, handleClick }) => {
       <h3 id="dialog-title" className={stl.title}>
         {success ? 'Table Reserved Successfully' : 'Reservation Failed'}
       </h3>
-      <p id='id="dialog-message"' className={stl.msg}>
+      <p id="dialog-message" className={stl.msg}>
         {success
           ? 'Thank you for choosing us. Your reservation was successful!'
           : "We're sorry, but your reservation could not be processed. Please check your information and try again. If the issue persists, contact customer support for assistance."}
       </p>
       <Button
         dataTestId="dialog-btn"
-        label={success ? 'See Details' : 'Reserve again'}
+        label={success ? 'See Details' : 'Try again'}
         onClick={onClickHandler}
       />
     </div>

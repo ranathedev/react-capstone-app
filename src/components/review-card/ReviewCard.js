@@ -24,7 +24,7 @@ const ReviewCard = ({ id, numOfStars = 4, imgSrc, name, review }) => {
         ))}
       </div>
       <div className={stl.userInfo}>
-        <img src={imgSrc} alt={id} />
+        <img src={imgSrc} width={60} height={60} alt={id} />
         <span className={stl.name}>{name}</span>
       </div>
       <p className={stl.review}>{review + ` ${name}.`} </p>

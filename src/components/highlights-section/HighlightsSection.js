@@ -4,9 +4,9 @@ import { useNavigate } from 'react-router-dom'
 import Button from 'components/button'
 
 import ItemCard from 'components/item-card'
-import GreekSaladImage from 'assets/greek-salad.jpg'
-import BroccoliImage from 'assets/broccoli.jpg'
-import BruchettaImage from 'assets/bruchetta.jpg'
+import GreekSaladImage from 'assets/greek-salad.webp'
+import BroccoliImage from 'assets/broccoli.webp'
+import BruchettaImage from 'assets/bruchetta.webp'
 
 import stl from './HighlightsSection.module.scss'
 
@@ -38,10 +38,13 @@ const HighlightsSection = () => {
   ]
 
   return (
-    <section className={stl.highlights} aria-labelledby="section-heading">
+    <section
+      className={stl.highlights}
+      aria-labelledby="highlights-section-heading"
+    >
       <div className={stl.wrapper}>
         <div className={stl.header}>
-          <h2 id="section-heading" className={stl.heading}>
+          <h2 id="highlights-section-heading" className={stl.heading}>
             This weeks special!
           </h2>
           <Button

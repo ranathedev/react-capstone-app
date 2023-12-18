@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import Logo from 'assets/footer_logo.png'
+import Logo from 'assets/footer_logo.webp'
 
 import stl from './Footer.module.scss'
 
@@ -38,14 +38,14 @@ const Footer = () => {
   ]
 
   return (
-    <footer data-testid="footer" className={stl.footer} role="navigation">
+    <footer data-testid="footer" className={stl.footer}>
       <div className={stl.wrapper}>
-        <img src={Logo} alt="little-lemon-logo" />
+        <img src={Logo} width={152} alt="little-lemon-logo" />
         <div className={stl.listContainer}>
           <span className={stl.listHeading}>Site Links</span>
           <ul>
             {doormatNav.map(item => (
-              <li key={item.name} role="menuitem">
+              <li key={item.name}>
                 <Link to={item.href}>{item.name}</Link>
               </li>
             ))}
@@ -55,7 +55,7 @@ const Footer = () => {
           <span className={stl.listHeading}>Contact</span>
           <ul>
             {contactLinks.map(item => (
-              <li key={item.name} role="menuitem">
+              <li key={item.name}>
                 <a href={item.href}>{item.name}</a>
               </li>
             ))}
@@ -65,7 +65,7 @@ const Footer = () => {
           <span className={stl.listHeading}>Social Links</span>
           <ul>
             {socialLinks.map(item => (
-              <li key={item.name} role="menuitem">
+              <li key={item.name}>
                 <a href={item.href}>{item.name}</a>
               </li>
             ))}

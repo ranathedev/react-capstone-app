@@ -9,7 +9,7 @@ import stl from './BookingPage.module.scss'
 
 const BookingPage = ({ availableTimes, updateTimes }) => {
   return (
-    <div className={stl.booking} role="region" aria-labelledby="reserve-table">
+    <div className={stl.booking} role="region" aria-label="Booking Page">
       <HeroSection
         id="reserve-table"
         heading="Reserve Now"

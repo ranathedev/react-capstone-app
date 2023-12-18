@@ -20,14 +20,13 @@ const Nav = ({ show, setShow }) => {
       aria-hidden={!show}
       role="navigation"
     >
-      <ul role="menu">
+      <ul>
         {navLinks.map(item => (
-          <li key={item.name} role="menuitem">
+          <li key={item.name}>
             <NavLink
               to={item.href}
               className={({ isActive }) => (isActive ? stl.active : '')}
               onClick={() => setShow(false)}
-              role="link"
             >
               {item.name}
             </NavLink>
