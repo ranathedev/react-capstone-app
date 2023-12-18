@@ -1,8 +1,14 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen } from '@testing-library/react'
+import App from './App'
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+test('App should have Header, Main and Footer as children', () => {
+  render(<App />)
+
+  const Header = screen.getByTestId('header')
+  const Main = screen.getByTestId('main')
+  const Footer = screen.getByTestId('footer')
+
+  expect(Header).toBeInTheDocument()
+  expect(Main).toBeInTheDocument()
+  expect(Footer).toBeInTheDocument()
+})

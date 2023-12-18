@@ -36,7 +36,12 @@ const Header = () => {
   useOnClickOutside(() => setShowMenu(false), headerRef)
 
   return (
-    <header ref={headerRef} className={stl.header} role="banner">
+    <header
+      data-testid="header"
+      ref={headerRef}
+      className={stl.header}
+      role="banner"
+    >
       <div className={stl.wrapper}>
         <Link to="/" aria-label="Home">
           <img src="Logo.png" width={150} height={50} alt="Little Lemon Logo" />

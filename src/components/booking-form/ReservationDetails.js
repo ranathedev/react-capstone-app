@@ -43,6 +43,7 @@ const ReservationDetails = ({
 
   return (
     <div
+      data-testid="reservation-details-step"
       className={stl.reservationDetails}
       role="group"
       aria-labelledby="contact-information"
@@ -52,6 +53,7 @@ const ReservationDetails = ({
           <label htmlFor="date">Select Date *</label>
           <input
             id="date"
+            data-testid="date"
             type="date"
             {...formik.getFieldProps('date')}
             onChange={e => {
@@ -74,6 +76,7 @@ const ReservationDetails = ({
           <div className={stl.input}>
             <Dropdown
               id="branch"
+              dataTestId="branch"
               list={branchList}
               formikProps={formik.getFieldProps('branch')}
               icon={<BranchIcon />}
@@ -94,6 +97,7 @@ const ReservationDetails = ({
           <div className={stl.input}>
             <Dropdown
               id="time"
+              dataTestId="time"
               list={availableTimes}
               formikProps={formik.getFieldProps('time')}
               icon={<ClockIcon />}
@@ -113,6 +117,7 @@ const ReservationDetails = ({
             <span>
               <input
                 id="indoor"
+                data-testid="indoor"
                 type="radio"
                 {...formik.getFieldProps('seatingPreference')}
                 value="Indoor"
@@ -124,6 +129,7 @@ const ReservationDetails = ({
             <span>
               <input
                 id="outdoor"
+                data-testid="outdoor"
                 type="radio"
                 {...formik.getFieldProps('seatingPreference')}
                 value="Outdoor"
@@ -143,14 +149,25 @@ const ReservationDetails = ({
           </div>
         </div>
 
-        <div className={clsx(stl.field, stl.numOfGuests)}>
+        <div
+          data-testid="no-of-guests"
+          className={clsx(stl.field, stl.numOfGuests)}
+        >
           <label htmlFor="noOfGuests">No. of Guests *</label>
           <div id="noOfGuests" className={stl.counter}>
-            <span className={stl.btn} onClick={handleDecrease}>
+            <span
+              data-testid="minus-btn"
+              className={stl.btn}
+              onClick={handleDecrease}
+            >
               -
             </span>
             <span className={stl.num}>{noOfGuests}</span>
-            <span className={stl.btn} onClick={handleIncrease}>
+            <span
+              data-testid="add-btn"
+              className={stl.btn}
+              onClick={handleIncrease}
+            >
               +
             </span>
           </div>

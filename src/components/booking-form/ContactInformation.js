@@ -21,6 +21,7 @@ const ContactInformation = ({ formik }) => {
           <label htmlFor="fullName">Full Name *</label>
           <input
             id="fullName"
+            data-testid="fullName"
             placeholder="Enter you full name"
             {...formik.getFieldProps('fullName')}
             className={stl.input}
@@ -39,6 +40,7 @@ const ContactInformation = ({ formik }) => {
           <label htmlFor="email">Email *</label>
           <input
             id="email"
+            data-testid="email"
             placeholder="Enter your email"
             {...formik.getFieldProps('email')}
             className={stl.input}
@@ -56,6 +58,8 @@ const ContactInformation = ({ formik }) => {
           <label htmlFor="occasion">Select Occasion *</label>
           <div className={stl.input}>
             <Dropdown
+              id="occasion"
+              dataTestId="occasion"
               icon={<OccasionIcon />}
               list={occasionList}
               formikProps={formik.getFieldProps('occasion')}
@@ -75,6 +79,7 @@ const ContactInformation = ({ formik }) => {
           <label htmlFor="specialInstructions">Special Instructions</label>
           <textarea
             id="specialInstructions"
+            data-testid="specialInstructions"
             placeholder="Enter any special instructions or requests here..."
             {...formik.getFieldProps('specialInstructions')}
             className={stl.input}

@@ -4,6 +4,7 @@ import clsx from 'clsx'
 import stl from './Button.module.scss'
 
 const Button = ({
+  dataTestId,
   variant,
   label = 'Button',
   iconLeft,
@@ -13,6 +14,7 @@ const Button = ({
 }) => {
   return (
     <button
+      data-testid={dataTestId}
       className={clsx(stl.btn, stl[variant])}
       aria-label={ariaLabel}
       aria-live="polite"

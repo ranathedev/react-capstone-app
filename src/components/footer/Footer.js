@@ -38,7 +38,7 @@ const Footer = () => {
   ]
 
   return (
-    <footer className={stl.footer} role="navigation">
+    <footer data-testid="footer" className={stl.footer} role="navigation">
       <div className={stl.wrapper}>
         <img src={Logo} alt="little-lemon-logo" />
         <div className={stl.listContainer}>
