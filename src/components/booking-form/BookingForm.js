@@ -20,17 +20,12 @@ import stl from './BookingForm.module.scss'
 const BookingForm = ({ availableTimes, updateTimes }) => {
   const [active, setActive] = useState(0)
   const [success, setSuccess] = useState(true)
-  const [branch, setBranch] = useState('')
-  const [occassion, setOccassion] = useState('')
   const [noOfGuests, setNoOfGuests] = useState(1)
-  const [branchErr, setBranchErr] = useState('')
   const [noOfGuestsErr, setNoOfGuestsErr] = useState('')
-  const [time, setTime] = useState('')
   const navigate = useNavigate()
 
   useEffect(() => {
     setNoOfGuestsErr('')
-    setBranchErr('')
   }, [active])
 
   const formik = useFormik({
@@ -43,10 +38,7 @@ const BookingForm = ({ availableTimes, updateTimes }) => {
       if (active === 3) {
         setActive(4)
         console.log(values)
-        console.log('Branch:', branch)
         console.log('No. of Guest:', noOfGuests)
-        console.log('Occassion:', occassion)
-        console.log('Time:', time)
         setSuccess(true)
       }
     },
@@ -57,31 +49,20 @@ const BookingForm = ({ availableTimes, updateTimes }) => {
       case 0:
         return (
           <ReservationDetails
-            branchItemClick={setBranch}
             noOfGuests={noOfGuests}
             setNoOfGuests={setNoOfGuests}
-            branchErr={branchErr}
             noOfGuestsErr={noOfGuestsErr}
             setNoOfGuestsErr={setNoOfGuestsErr}
             availableTimes={availableTimes}
-            timeItemClick={setTime}
             updateTimes={updateTimes}
             formik={formik}
           />
         )
       case 1:
-        return (
-          <ContactInformation handleItemClick={setOccassion} formik={formik} />
-        )
+        return <ContactInformation formik={formik} />
       case 2:
         return (
-          <ReviewDetails
-            formikValues={formik.values}
-            branch={branch}
-            noOfGuests={noOfGuests}
-            occassion={occassion}
-            time={time}
-          />
+          <ReviewDetails formikValues={formik.values} noOfGuests={noOfGuests} />
         )
       case 3:
         return <PaymentDetails formik={formik} />
@@ -100,10 +81,8 @@ const BookingForm = ({ availableTimes, updateTimes }) => {
   ]
 
   const handlePrimaryClick = () => {
-    if (active === 0 && branch === '') setBranchErr('Branch is required')
-    else if (active === 2) setActive(3)
+    if (active === 2) setActive(3)
     else {
-      setBranchErr('')
       formik.submitForm()
     }
   }

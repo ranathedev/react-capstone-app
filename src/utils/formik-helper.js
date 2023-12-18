@@ -3,6 +3,8 @@ import * as Yup from 'yup'
 const validationSchemas = [
   Yup.object({
     date: Yup.date().required('Date is required'),
+    branch: Yup.string().required('Branch is required'),
+    time: Yup.string().required('Time is required'),
     seatingPreference: Yup.string()
       .oneOf(['Indoor', 'Outdoor'])
       .required('Seating preference is required'),
@@ -12,6 +14,7 @@ const validationSchemas = [
     email: Yup.string()
       .email('Invalid email address')
       .required('Email is required'),
+    occasion: Yup.string().required('Occasion is required'),
     specialInstructions: Yup.string().optional(),
   }),
   {},
@@ -31,9 +34,12 @@ const validationSchemas = [
 
 const initialValues = {
   date: '',
+  branch: '',
+  time: '',
   seatingPreference: '',
   fullName: '',
   email: '',
+  occasion: '',
   specialInstructions: '',
   cardNumber: '',
   expirationDate: '',

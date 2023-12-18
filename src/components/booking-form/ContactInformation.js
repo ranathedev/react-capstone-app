@@ -3,12 +3,12 @@ import React from 'react'
 import Dropdown from 'components/dropdown'
 import ErrorMessage from 'components/error-message'
 
-import { ReactComponent as OccassionIcon } from 'assets/occasion.svg'
+import { ReactComponent as OccasionIcon } from 'assets/occasion.svg'
 
 import stl from './BookingForm.module.scss'
 
-const ContactInformation = ({ handleItemClick, formik }) => {
-  const list = ['Birthday', 'Anniversary', 'Engagement']
+const ContactInformation = ({ formik }) => {
+  const occasionList = ['Birthday', 'Anniversary', 'Engagement']
 
   return (
     <div
@@ -53,17 +53,22 @@ const ContactInformation = ({ handleItemClick, formik }) => {
         </div>
 
         <div className={stl.field}>
-          <label htmlFor="occassion">Select Occassion</label>
+          <label htmlFor="occasion">Select Occasion *</label>
           <div className={stl.input}>
             <Dropdown
-              id="occassion"
-              title="Occassion"
-              handleItemClick={handleItemClick}
-              icon={<OccassionIcon />}
-              list={list}
-              aria-labelledby="occassion"
+              icon={<OccasionIcon />}
+              list={occasionList}
+              formikProps={formik.getFieldProps('occasion')}
             />
           </div>
+          <ErrorMessage
+            msg={
+              formik.touched.occasion &&
+              formik.errors.occasion &&
+              formik.errors.occasion
+            }
+            customClass={stl.dropdownErr}
+          />
         </div>
 
         <div className={stl.field}>
