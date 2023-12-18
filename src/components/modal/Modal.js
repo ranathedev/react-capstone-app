@@ -4,10 +4,10 @@ import DialogBox from 'components/dialog-box'
 
 import stl from './Modal.module.scss'
 
-const Modal = ({ success }) => {
+const Modal = ({ success, handleBtnClick }) => {
   return (
     <div className={stl.modal} role="dialog" aria-modal="true">
-      <DialogBox success={success} />
+      <DialogBox success={success} handleClick={handleBtnClick} />
     </div>
   )
 }

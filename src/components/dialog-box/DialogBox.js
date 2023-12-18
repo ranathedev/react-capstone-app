@@ -7,10 +7,10 @@ import { ReactComponent as FailIcon } from 'assets/fail.svg'
 
 import stl from './DialogBox.module.scss'
 
-const DialogBox = ({ success = true }) => {
-  const handleClick = e => {
+const DialogBox = ({ success = true, handleClick }) => {
+  const onClickHandler = e => {
     e.preventDefault()
-    window.location.reload()
+    handleClick()
   }
 
   return (
@@ -32,8 +32,8 @@ const DialogBox = ({ success = true }) => {
       </p>
       <Button
         dataTestId="dialog-btn"
-        label={success ? 'Reserve another' : 'Reserver again'}
-        onClick={handleClick}
+        label={success ? 'See Details' : 'Reserve again'}
+        onClick={onClickHandler}
       />
     </div>
   )

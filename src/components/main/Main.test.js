@@ -1,7 +1,9 @@
+import { fetchAPI } from 'utils/fetchData'
 import { updateTimes, initializeTimes } from './Main'
 
+const dateNow = new Date()
 test('initializeTimes return the correct expected value', () => {
-  const expected = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00']
+  const expected = fetchAPI(dateNow)
 
   const actual = initializeTimes()
 
@@ -10,9 +12,9 @@ test('initializeTimes return the correct expected value', () => {
 
 test('updateTimes return the correct expected value', () => {
   // value provided in state
-  const state = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00']
+  const state = fetchAPI(dateNow)
 
-  const actual = updateTimes(state, new Date())
+  const actual = updateTimes(state, dateNow)
 
   expect(actual).toStrictEqual(state)
 })

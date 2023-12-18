@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 
 import HomePage from 'components/homepage'
 import BookingPage from 'components/booking-page'
+import { fetchAPI } from 'utils/fetchData'
 
 // const timesReducer = (state, action) => {
 //   switch (action.type) {
@@ -14,11 +15,12 @@ import BookingPage from 'components/booking-page'
 // }
 
 const initializeTimes = () => {
-  return ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00']
+  const res = fetchAPI(new Date())
+  return res
 }
 const updateTimes = (state, date) => {
-  console.log('List updated with Date:', date)
-  return state
+  const res = fetchAPI(date)
+  return res
 }
 
 const Main = () => {
